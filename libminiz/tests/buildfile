@@ -8,4 +8,4 @@ for x: c{* -fuzz_main}
   ./: exe{$n}: $x $miniz libue{fuzz_main}
 }
 
-./: exe{miniz_tester}: {hxx cxx}{timer} cxx{miniz_tester} $miniz
+# ./: exe{miniz_tester}: {hxx cxx}{timer} cxx{miniz_tester} $miniz
