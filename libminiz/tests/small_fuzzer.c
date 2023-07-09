@@ -1,0 +1,1 @@
+../../upstream/tests/small_fuzzer.c

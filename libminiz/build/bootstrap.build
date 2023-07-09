@@ -1,0 +1,7 @@
+project = libminiz
+
+using version
+using config
+using test
+using install
+using dist

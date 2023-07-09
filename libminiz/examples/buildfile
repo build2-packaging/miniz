@@ -1,0 +1,14 @@
+import miniz = libminiz%lib{miniz}
+
+for x : c{*}
+{
+  n = $name($x)
+  ./: exe{$n}: $x $miniz
+}
+
+if ($c.target.class != 'windows')
+  c.libs += -lm
+
+exe{example3}: test = false
+exe{example4}: test = false
+exe{example5}: test = false

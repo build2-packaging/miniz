@@ -1,0 +1,6 @@
+./: manifest legal{LICENSE} doc{*.md}
+
+./: miniz/ examples/ tests/
+
+tests/: install = false
+examples/: install = false

@@ -1,0 +1,6 @@
+$out_root
+{
+  include miniz/
+}
+
+export $out_root/miniz/$import.target

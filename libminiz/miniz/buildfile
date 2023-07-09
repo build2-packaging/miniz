@@ -1,0 +1,10 @@
+lib{miniz}: {h c}{*}
+
+if ($c.class == 'gcc')
+  c.poptions += -D_GNU_SOURCE
+
+lib{miniz}: c.export.poptions = "-I$src_base"
+
+liba{miniz}: c.export.poptions += -DMINIZ_STATIC_DEFINE
+
+lib{miniz}: bin.lib.version = "-$version.major.$version.minor"

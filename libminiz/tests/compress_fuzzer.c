@@ -1,0 +1,1 @@
+../../upstream/tests/compress_fuzzer.c
