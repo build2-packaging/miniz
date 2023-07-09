@@ -1,12 +1,21 @@
+# Headers and Sources
+#
 lib{miniz}: {h c}{*}
 
+# Build Options
+#
+c.poptions =+ "-I$out_base" "-I$src_base"
 if ($c.class == 'gcc')
   c.poptions += -D_GNU_SOURCE
+obja{*}: c.poptions += -DMINIZ_STATIC_BUILD
+objs{*}: c.poptions += -DMINIZ_SHARED_BUILD
 
-lib{miniz}: c.export.poptions = "-I$src_base"
+# Export Options
+#
+lib{miniz}: c.export.poptions = "-I$out_base" "-I$src_base"
+liba{miniz}: c.export.poptions += -DMINIZ_STATIC
+libs{miniz}: c.export.poptions += -DMINIZ_SHARED
 
-liba{miniz}: c.export.poptions += -DMINIZ_STATIC_DEFINE
-
+# Library Version
+#
 lib{miniz}: bin.lib.version = "-$version.major.$version.minor"
-
-# default visibility hidden

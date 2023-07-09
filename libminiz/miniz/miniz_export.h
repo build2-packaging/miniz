@@ -8,23 +8,23 @@
 // used before their inline definition. The workaround is to reorder code. In
 // the end it's all trial and error.
 
-// #if defined(MINIZ_STATIC_DEFINE) // Using static.
-// #define MINIZ_EXPORT
-// #elif defined(MINIZ_STATIC_BUILD) // Building static.
-// #define MINIZ_EXPORT
-// #elif defined(MINIZ_SHARED) // Using shared.
-// #ifdef _WIN32
-// #define MINIZ_EXPORT __declspec(dllimport)
-// #else
-// #define MINIZ_EXPORT
-// #endif
-// #elif defined(MINIZ_SHARED_BUILD) // Building shared.
-// #ifdef _WIN32
-// #define MINIZ_EXPORT __declspec(dllexport)
-// #else
-// #define MINIZ_EXPORT
-// #endif
-// #else
+#if defined(MINIZ_STATIC)         // Using static.
+#  define MINIZ_EXPORT
+#elif defined(MINIZ_STATIC_BUILD) // Building static.
+#  define MINIZ_EXPORT
+#elif defined(MINIZ_SHARED)       // Using shared.
+#  ifdef _WIN32
+#    define MINIZ_EXPORT __declspec(dllimport)
+#  else
+#    define MINIZ_EXPORT
+#  endif
+#elif defined(MINIZ_SHARED_BUILD) // Building shared.
+#  ifdef _WIN32
+#    define MINIZ_EXPORT __declspec(dllexport)
+#  else
+#    define MINIZ_EXPORT
+#  endif
+#else
 // If none of the above macros are defined, then we assume we are being used
 // by some third-party build system that cannot/doesn't signal the library
 // type. Note that this fallback works for both static and shared libraries
@@ -34,7 +34,6 @@
 // then you will probably want to replace the fallback with the (commented
 // out) error since it won't work for the shared case.
 //
-#define MINIZ_EXPORT // Using static or shared.
-// #  error define MINIZ_STATIC or MINIZ_SHARED preprocessor macro to signal
-// hello library type being linked
-// #endif
+#  define MINIZ_EXPORT         // Using static or shared.
+//#  error define MINIZ_STATIC or MINIZ_SHARED preprocessor macro to signal hello library type being linked
+#endif
