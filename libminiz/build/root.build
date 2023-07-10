@@ -12,3 +12,5 @@ if ($c.target.system == 'win32-msvc')
 
 config [bool] config.libminiz.amalgamate_headers ?= true
 config [bool] config.libminiz.amalgamate_sources ?= true
+
+assert (!$config.libminiz.amalgamate_sources || $config.libminiz.amalgamate_headers) 'To amalgamate sources, headers need to be amalgamated, too.'
