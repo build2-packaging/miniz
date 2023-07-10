@@ -10,5 +10,5 @@ exe{*}: test = true
 if ($c.target.system == 'win32-msvc')
   c.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS
 
-# if ($c.class == 'msvc')
-#   c.coptions += /wd4251 /wd4275 /wd4800
+config [bool] config.libminiz.amalgamate_headers ?= true
+config [bool] config.libminiz.amalgamate_sources ?= true
