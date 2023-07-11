@@ -3,7 +3,7 @@ import miniz = libminiz%lib{miniz}
 for x : c{*}
 {
   n = $name($x)
-  ./: exe{$n}: $x $miniz
+  ./: exe{$n}: $x $miniz testscript
 }
 
 if ($c.target.class != 'windows')
