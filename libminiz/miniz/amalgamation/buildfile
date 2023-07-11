@@ -1,4 +1,4 @@
-miniz = [dir_path] ../miniz/
+miniz = [dir_path] ../
 
 ./: h{miniz}: \
   $miniz/h{miniz_export miniz miniz_common miniz_tdef miniz_tinfl miniz_zip}
@@ -22,3 +22,5 @@ miniz = [dir_path] ../miniz/
   sed --expression "s/^\#include \"miniz.h\"\$//" $path($<[2]) >> $path($>)
   sed --expression "s/^\#include \"miniz.h\"\$//" $path($<[3]) >> $path($>)
 }}
+
+h{*}: install = include/

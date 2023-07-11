@@ -1,7 +1,7 @@
 # Include amalgamation recipes.
 #
-amalgamation = [dir_path] ../amalgamation/
-out_amalgamation = [dir_path] $out_root/amalgamation/
+amalgamation = [dir_path] amalgamation/
+out_amalgamation = [dir_path] $out_base/amalgamation/
 include $amalgamation
 
 # Headers
