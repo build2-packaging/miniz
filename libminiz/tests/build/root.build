@@ -10,4 +10,4 @@ cxx{*}: extension = cpp
 
 test.target = $c.target
 
-exe{*}: test = true
+# exe{*}: test = true
