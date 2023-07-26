@@ -1,25 +1,10 @@
-# Include amalgamation recipes.
+# Headers and Sources
 #
-amalgamation = [dir_path] amalgamation/
-out_amalgamation = [dir_path] $out_base/amalgamation/
-include $amalgamation
-
-# Headers
-#
-lib{miniz}: h{*}: include = (!$config.libminiz.amalgamate_headers)
-lib{miniz}: $amalgamation/h{miniz}: include =$config.libminiz.amalgamate_headers
-
-# Sources
-#
-lib{miniz}: c{*}: include = (!$config.libminiz.amalgamate_sources)
-lib{miniz}: $amalgamation/c{miniz}: include = $config.libminiz.amalgamate_sources
+lib{miniz}: {h c}{*}
 
 # Build Options
 #
-if ($config.libminiz.amalgamate_headers)
-  c.poptions =+ "-I$out_amalgamation"
-else
-  c.poptions =+ "-I$src_base"
+c.poptions =+ "-I$src_base"
 
 if ($c.class == 'gcc')
   c.poptions += -D_GNU_SOURCE
@@ -29,19 +14,10 @@ objs{*}: c.poptions += -DMINIZ_SHARED_BUILD
 
 # Export Options
 #
-if ($config.libminiz.amalgamate_headers)
-  lib{miniz}: c.export.poptions = "-I$out_amalgamation"
-else
-  lib{miniz}: c.export.poptions = "-I$src_base"
-
+lib{miniz}: c.export.poptions = "-I$src_base"
 liba{miniz}: c.export.poptions += -DMINIZ_STATIC
 libs{miniz}: c.export.poptions += -DMINIZ_SHARED
 
 # Library Version
 #
 lib{miniz}: bin.lib.version = "-$version.major.$version.minor"
-
-# Installation
-#
-if $config.libminiz.amalgamate_headers
-  h{*}: install = false

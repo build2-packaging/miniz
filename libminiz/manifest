@@ -1,6 +1,6 @@
 : 1
 name: libminiz
-version: 3.0.2
+version: 3.0.2+1
 type: lib
 language: c
 project: miniz
@@ -20,19 +20,3 @@ package-email: packaging@build2.org
 
 depends: * build2 >= 0.16.0
 depends: * bpkg >= 0.16.0
-
-separate-build-config:
-\
-config.libminiz.amalgamate_headers=false
-config.libminiz.amalgamate_sources=false
-;
-Use separate headers and sources for compilation and usage.
-\
-
-separate-sources-build-config:
-\
-config.libminiz.amalgamate_headers=true
-config.libminiz.amalgamate_sources=false
-;
-Use separate sources for compilation and a single header for usage.
-\
