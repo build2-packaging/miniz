@@ -1,0 +1,10 @@
+: 1
+name: libminiz
+version: 3.0.2+1
+type: lib
+language: c
+project: miniz
+summary: Miniz is a lossless, high performance data compression library in a\
+ single source file that implements the zlib (RFC 1950) and Deflate (RFC\
+ 1951) compressed data format specification standards.
+license: MIT
