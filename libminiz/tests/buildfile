@@ -7,5 +7,3 @@ for x: c{* -fuzz_main}
   n = $name($x)
   ./: exe{$n}: $x $miniz libue{fuzz_main}
 }
-
-# ./: exe{miniz_tester}: {hxx cxx}{timer} cxx{miniz_tester} $miniz
