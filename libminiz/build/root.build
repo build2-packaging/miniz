@@ -5,7 +5,5 @@ c{*}: extension = c
 
 test.target = $c.target
 
-exe{*}: test = true
-
 if ($c.target.system == 'win32-msvc')
   c.poptions += -D_CRT_SECURE_NO_WARNINGS -D_SCL_SECURE_NO_WARNINGS
