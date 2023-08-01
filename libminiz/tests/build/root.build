@@ -7,4 +7,9 @@ c{*}: extension = c
 
 test.target = $c.target
 
+# For now, the tests cannot be run properly
+# as they need special input files.
+# So, to at least test their compilation,
+# tests for executables are disabled by default.
+#
 # exe{*}: test = true
