@@ -1,5 +1,3 @@
-cxx.std = latest
-
 using c
 
 h{*}: extension = h
